@@ -17,7 +17,17 @@ it is even or odd by a message on the screen.
 */
 
 
-$even = " is even!";
+$to_print = " is even!";
+
+/* 
+function pre_r($array) {
+
+    echo '<pre>';
+    print_r($array);
+    echo '</pre>';
+
+}
+*/
 
 function numcheck ($number) {
    
@@ -32,30 +42,39 @@ return $checker;
 
 }
 
+
+// pre_r($_POST);
+
 ?>
 
-<h2>Even and odd checker form</h2>
-<br>
 
-    <form action = "" method = "POST">
-        Enter an integer value: <input type="text" name="value">
-        <input type="submit">
+<h2>Even and odd checker form</h2>
+
+    <form action ="" method ="POST">
+        Enter an integer value: <input type="number" name="value" value="">
+        <input type="submit" value="submit" name="submit">
         </form>
+
 
 <?php
 
-   $number = $_POST;
+if (isset($_POST['submit'])) {
+    $number = $_POST['value'];
     $checker = numcheck ($number);
 
     if (!$checker) {
-
-        $even = " is odd!";
-
+    
+        $to_print = " is odd!";
+    
     }
-    echo $number . $even;
+    echo "<br />$number <b>$to_print</b><br />";
+    }
+
 
 
 ?>
+
+
 
 </body>
 </html>
